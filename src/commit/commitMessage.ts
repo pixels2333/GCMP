@@ -65,8 +65,8 @@ export class CommitMessage {
      * 参数：
      * - sourceControlRepository：VS Code Git 扩展传入的仓库对象；若未传入则会自动选择（单仓库直接取，多仓库按 resContext 尝试匹配，否则弹出选择）。
      * - options.scope：控制分析范围
-     *   - 'config'：默认行为（分析 staged + working tree）
-     *   - 'staged'：仅分析已暂存（staged）
+     *   - undefined（默认）：优先读取暂存区，若无暂存变更则自动回退到未提交工作树
+     *   - 'staged'：仅分析已暂存（staged），无回退
      *   - 'workingTree'：仅分析工作区变更（tracked + untracked），不包含 staged
      * - options.resContext：SCM 菜单/按钮回调常带的 ResourceGroup，用于多仓库场景推断当前仓库。
      *
@@ -75,7 +75,7 @@ export class CommitMessage {
      */
     static async generateAndSetCommitMessage(
         sourceControlRepository?: Repository,
-        options?: { scope?: 'config' | 'staged' | 'workingTree'; resContext?: vscode.SourceControlResourceGroup }
+        options?: { scope?: 'staged' | 'workingTree'; resContext?: vscode.SourceControlResourceGroup }
     ): Promise<void> {
         if (this.isGenerating) {
             vscode.window.showInformationMessage('正在生成提交消息，请稍候或点击“停止”中止');
@@ -141,9 +141,15 @@ export class CommitMessage {
                 // 4. 应用提交消息
                 progress.report({ message: '正在应用提交消息...', increment: 10 });
                 sourceControlRepository!.inputBox.value = commitMessage.message;
-                vscode.window.showInformationMessage('提交消息已生成并填入输入框');
+                const sourceLabel: Record<string, string> = {
+                    staged: '暂存区',
+                    workingTree: '工作树'
+                };
+                vscode.window.showInformationMessage(`提交消息已生成（基于${sourceLabel[commitMessage.diffSource]}）`);
 
-                Logger.info(`[CommitMessage] 提交消息已生成: ${commitMessage.message.substring(0, 50)}...`);
+                Logger.info(
+                    `[CommitMessage] 提交消息已生成 [${commitMessage.diffSource}]: ${commitMessage.message.substring(0, 50)}...`
+                );
             });
         } catch (error: unknown) {
             await this.handleError(error);
@@ -165,29 +171,55 @@ export class CommitMessage {
 
     /**
      * 业务流程：生成提交消息（diff/blame/生成）。
+     *
+     * scope 取值：
+     * - undefined（默认）：优先读取暂存区，若无暂存变更则自动回退到未提交工作树
+     * - 'staged'：仅分析暂存区（无回退）
+     * - 'workingTree'：仅分析工作树变更（tracked + untracked），不包含暂存
      */
     private static async generateCommitMessage(
         progress: vscode.Progress<{ message?: string; increment?: number }>,
         repository: Repository,
         token: vscode.CancellationToken,
-        scope: 'config' | 'staged' | 'workingTree' = 'staged'
-    ): Promise<{ message: string; model: string }> {
+        scope?: 'staged' | 'workingTree'
+    ): Promise<{ message: string; model: string; diffSource: 'staged' | 'workingTree' }> {
         const repoPath = repository.rootUri.fsPath;
         const commitConfig = ConfigManager.getCommitConfig();
-        // 默认入口仅分析 staged 变更（与提交语义一致）。
-        const onlyStagedChanges = scope === 'staged';
 
         // 1. 获取 Git 变更
         progress.report({ message: '正在分析 Git 变更...', increment: 10 });
-        let diffParts = await GitService.getDiff(repoPath, onlyStagedChanges, token);
+        let diffParts: Awaited<ReturnType<typeof GitService.getDiff>>;
 
-        // 触发来源为“变更区（working tree）”时：只分析 working tree（tracked + untracked），不包含 staged。
-        if (scope === 'workingTree') {
+        /** 实际使用的 diff 来源维度，用于提示用户 */
+        let diffSource: 'staged' | 'workingTree';
+
+        if (scope === 'staged') {
+            // 显式仅暂存：不回退
+            diffParts = await GitService.getDiff(repoPath, true, token);
+            diffSource = 'staged';
+        } else if (scope === 'workingTree') {
+            // 仅工作树：tracked + untracked，不含 staged
+            diffParts = await GitService.getDiff(repoPath, false, token);
             diffParts = {
                 staged: { uri: [], diff: [] },
                 tracked: diffParts.tracked,
                 untracked: diffParts.untracked
             };
+            diffSource = 'workingTree';
+        } else {
+            // 默认：优先暂存区，无暂存时自动回退到未提交工作树
+            try {
+                diffParts = await GitService.getDiff(repoPath, true, token);
+                diffSource = 'staged';
+            } catch (error) {
+                if (error instanceof NoChangesDetectedError) {
+                    Logger.info('[CommitMessage] 暂存区无变更，自动回退到未提交工作树');
+                    diffParts = await GitService.getDiff(repoPath, false, token);
+                    diffSource = 'workingTree';
+                } else {
+                    throw error;
+                }
+            }
         }
         this.throwIfCancelled(token);
 
@@ -218,7 +250,7 @@ export class CommitMessage {
         );
         this.throwIfCancelled(token);
 
-        return commitMessage;
+        return { ...commitMessage, diffSource };
     }
 
     /**
