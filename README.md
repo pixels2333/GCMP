@@ -84,8 +84,12 @@
 - [**Coding Plan 套餐**](https://www.volcengine.com/activity/codingplan)：
     - 豆包模型：**Doubao-Seed-2.0-Code**、**Doubao-Seed-Code**、**Doubao-Seed-2.0-lite**、**Doubao-Seed-2.0-pro**
     - 开源模型：**GLM-5.1**、**Kimi-K2.6**、**MiniMax-M2.7**、**MiniMax-M2.5**、**Kimi-K2.5**、**GLM-4.7**、**Deepseek v3.2**
-- **豆包系列**：**Doubao-Seed-2.0**(lite/mini/pro/Code)、**Doubao-Seed-1.8**、**Doubao-Seed-1.6**
-- **协作奖励计划**：**GLM-4.7**、**DeepSeek-V3.2**、**DeepSeek-V3.1-terminus**
+- [**Agent Plan 套餐**](https://www.volcengine.com/activity/agentplan)：
+    - 豆包模型：**Doubao-Seed-2.0**(Code/pro/lite/mini)
+    - 开源模型：**GLM-5.1**、**MiniMax-M2.7**、**Kimi-K2.6**、**DeepSeek-V3.2**
+- **豆包系列**：**Doubao-Seed-2.0**(lite/mini/pro/Code)、**Doubao-Seed-1.8**
+- **协作奖励计划**：**GLM-4.7**、**DeepSeek-V3.2**
+- **密钥配置**：支持设置 [Coding Plan API Key](https://console.volcengine.com/ark/region:ark+cn-beijing/apiKey) 与 [Agent Plan 专用 API Key](https://console.volcengine.com/ark/region:ark+cn-beijing/openManagement?LLM=%7B%7D&advancedActiveKey=agentPlan) 分别设置，配置向导引导选择套餐类型。
 
 ### [**腾讯云**](https://cloud.tencent.com/product/hunyuan)
 
