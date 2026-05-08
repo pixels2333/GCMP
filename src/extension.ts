@@ -8,6 +8,7 @@ import { DashscopeProvider } from './providers/dashscopeProvider';
 import { TencentProvider } from './providers/tencentProvider';
 import { XiaomimimoProvider } from './providers/xiaomimimoProvider';
 import { BaiduProvider } from './providers/baiduProvider';
+import { VolcengineProvider } from './providers/volcengineProvider';
 import { CompatibleProvider } from './providers/compatibleProvider';
 import { InlineCompletionShim } from './copilot/inlineCompletionShim';
 import { Logger, StatusLogger, CompletionLogger, TokenCounter } from './utils';
@@ -66,7 +67,8 @@ async function activateProviders(context: vscode.ExtensionContext): Promise<void
                 | DashscopeProvider
                 | TencentProvider
                 | XiaomimimoProvider
-                | BaiduProvider;
+                | BaiduProvider
+                | VolcengineProvider;
             let disposables: vscode.Disposable[];
 
             if (providerKey === 'zhipu') {
@@ -102,6 +104,11 @@ async function activateProviders(context: vscode.ExtensionContext): Promise<void
             } else if (providerKey === 'baidu') {
                 // 对百度千帆使用专门的 provider（多密钥管理和配置向导）
                 const result = BaiduProvider.createAndActivate(context, providerKey, providerConfig);
+                provider = result.provider;
+                disposables = result.disposables;
+            } else if (providerKey === 'volcengine') {
+                // 对火山方舟使用专门的 provider（Coding Plan / Agent Plan 多密钥管理和配置向导）
+                const result = VolcengineProvider.createAndActivate(context, providerKey, providerConfig);
                 provider = result.provider;
                 disposables = result.disposables;
             } else if (cliAuthProviders.includes(providerKey)) {

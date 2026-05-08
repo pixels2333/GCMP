@@ -136,6 +136,16 @@
                 "category": "GCMP"
             },
             {
+                "command": "gcmp.volcengine.setAgentPlanApiKey",
+                "title": "设置 火山方舟 Agent Plan 专用密钥",
+                "category": "GCMP"
+            },
+            {
+                "command": "gcmp.volcengine.configWizard",
+                "title": "火山方舟 配置向导",
+                "category": "GCMP"
+            },
+            {
                 "command": "gcmp.streamlake.setApiKey",
                 "title": "设置 快手万擎 API密钥",
                 "category": "GCMP"
@@ -650,8 +660,8 @@
             },
             {
                 "vendor": "gcmp.volcengine",
-                "displayName": "⦿ 火山方舟 (Coding Plan)",
-                "managementCommand": "gcmp.volcengine.setApiKey"
+                "displayName": "⦿ 火山方舟 (Coding / Agent Plan)",
+                "managementCommand": "gcmp.volcengine.configWizard"
             },
             {
                 "vendor": "gcmp.tencent",

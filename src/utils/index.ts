@@ -15,6 +15,7 @@ export { ZhipuWizard } from './zhipuWizard';
 export { MiniMaxWizard } from './minimaxWizard';
 export { MoonshotWizard } from './moonshotWizard';
 export { DashscopeWizard } from './dashscopeWizard';
+export { VolcengineWizard } from './volcengineWizard';
 export { TencentWizard } from './tencentWizard';
 export { XiaomimimoWizard } from './xiaomimimoWizard';
 export { BaiduWizard } from './baiduWizard';
