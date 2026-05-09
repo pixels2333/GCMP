@@ -1011,7 +1011,8 @@
         "package": "vsce package",
         "publish": "vsce publish --allow-proposed-apis chatProvider",
         "pretest": "npm run compile:dev",
-        "test": "npm run test:schema-sanitizer && npm run test:stateful-marker",
+        "test": "npm run test:schema-sanitizer && npm run test:stateful-marker && npm run test:request-message-filter",
+        "test:request-message-filter": "tsx --test src/utils/requestMessageFilter.test.ts",
         "test:schema-sanitizer": "tsx --test src/utils/schemaSanitizer.test.ts",
         "test:stateful-marker": "tsx --test src/handlers/statefulMarkerCodec.test.ts"
     },

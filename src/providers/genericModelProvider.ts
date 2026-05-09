@@ -1,4 +1,4 @@
-﻿/*---------------------------------------------------------------------------------------------
+/*---------------------------------------------------------------------------------------------
  *  通用Provider类
  *  基于配置文件动态创建提供商实现
  *--------------------------------------------------------------------------------------------*/
@@ -17,6 +17,7 @@ import { ProviderConfig, ModelConfig } from '../types/sharedTypes';
 import {
     ApiKeyManager,
     ConfigManager,
+    filterAbortedAssistantMessages,
     Logger,
     ModelInfoCache,
     PromptAnalyzer,
@@ -465,6 +466,14 @@ export class GenericModelProvider implements LanguageModelChatProvider {
         effectiveProviderKey = modelConfig.provider || this.providerKey
     ): Promise<void> {
         const sdkMode = modelConfig.sdkMode || 'openai';
+        const requestMessages = filterAbortedAssistantMessages(messages);
+
+        if (requestMessages.length !== messages.length) {
+            Logger.info(
+                `[${effectiveProviderKey}] 已过滤 ${messages.length - requestMessages.length} 条中止请求留下的空 assistant 消息`
+            );
+        }
+
         const retryManager = new RetryManager(this.getRequestRetryConfig());
 
         await retryManager.executeWithRetry(
@@ -473,7 +482,7 @@ export class GenericModelProvider implements LanguageModelChatProvider {
                     await this.anthropicHandler.handleRequest(
                         model,
                         modelConfig,
-                        messages,
+                        requestMessages,
                         options,
                         progress,
                         token,
@@ -483,7 +492,7 @@ export class GenericModelProvider implements LanguageModelChatProvider {
                     await this.geminiHandler.handleRequest(
                         model,
                         modelConfig,
-                        messages,
+                        requestMessages,
                         options,
                         progress,
                         token,
@@ -493,7 +502,7 @@ export class GenericModelProvider implements LanguageModelChatProvider {
                     await this.openaiCustomHandler.handleRequest(
                         model,
                         modelConfig,
-                        messages,
+                        requestMessages,
                         options,
                         progress,
                         token,
@@ -503,7 +512,7 @@ export class GenericModelProvider implements LanguageModelChatProvider {
                     await this.openaiResponsesHandler.handleResponsesRequest(
                         model,
                         { ...modelConfig, provider: effectiveProviderKey },
-                        messages,
+                        requestMessages,
                         options,
                         progress,
                         token,
@@ -513,7 +522,7 @@ export class GenericModelProvider implements LanguageModelChatProvider {
                     await this.openaiHandler.handleRequest(
                         model,
                         modelConfig,
-                        messages,
+                        requestMessages,
                         options,
                         progress,
                         token,
@@ -626,11 +635,12 @@ export class GenericModelProvider implements LanguageModelChatProvider {
         options?: ProvideLanguageModelChatResponseOptions
     ): Promise<number> {
         try {
-            // 统计提示词各部分的占用（包含总 token 数）
+            const requestMessages = filterAbortedAssistantMessages(messages);
+
             const promptParts = await PromptAnalyzer.analyzePromptParts(
                 this.providerKey,
                 model,
-                messages,
+                requestMessages,
                 modelConfig,
                 options
             );
