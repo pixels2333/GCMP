@@ -5,6 +5,19 @@
     "codingKeyTemplate": "bce-v3/ALTAKSP-xxxxxxxxxxxxxxxxxxxxx/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "models": [
         {
+            "id": "deepseek-v4-flash-coding-plan",
+            "name": "DeepSeek-V4-Flash (Coding Plan)",
+            "tooltip": "百度千帆 Coding Plan 专属接入点中的 DeepSeek-V4-Flash。DeepSeek 最新轻量推理模型，适用于通用问答、日常 Agent 任务及基础开发辅助。",
+            "provider": "baidu-coding",
+            "sdkMode": "anthropic",
+            "baseUrl": "https://qianfan.baidubce.com/anthropic/coding",
+            "model": "deepseek-v4-flash",
+            "maxInputTokens": 1000000,
+            "maxOutputTokens": 128000,
+            "reasoningEffort": ["high", "max", "none"],
+            "capabilities": { "toolCalling": true, "imageInput": false }
+        },
+        {
             "id": "deepseek-v3.2-coding-plan",
             "name": "DeepSeek-V3.2 (Coding Plan)",
             "tooltip": "百度千帆 Coding Plan 专属接入点中的 DeepSeek-V3.2。兼顾推理效果与响应效率，适用于通用问答、日常 Agent 任务及基础开发辅助。",
@@ -15,6 +28,19 @@
             "maxInputTokens": 96000,
             "maxOutputTokens": 32000,
             "thinking": ["disabled", "enabled"],
+            "capabilities": { "toolCalling": true, "imageInput": false }
+        },
+        {
+            "id": "glm-5.1-coding-plan",
+            "name": "GLM-5.1 (Coding Plan)",
+            "tooltip": "百度千帆 Coding Plan 专属接入点中的 GLM-5.1。智谱新一代旗舰基座，Coding能力和Agent能力进一步提升。抵扣系数较高，仅推荐在复杂任务场景使用。",
+            "provider": "baidu-coding",
+            "sdkMode": "anthropic",
+            "baseUrl": "https://qianfan.baidubce.com/anthropic/coding",
+            "model": "glm-5.1",
+            "maxInputTokens": 200000,
+            "maxOutputTokens": 128000,
+            "thinking": ["enabled", "disabled"],
             "capabilities": { "toolCalling": true, "imageInput": false }
         },
         {
@@ -55,7 +81,26 @@
             "maxOutputTokens": 128000,
             "capabilities": { "toolCalling": true, "imageInput": false }
         },
-
+        {
+            "id": "deepseek-v4-flash",
+            "name": "DeepSeek-V4-Flash (按量计费)",
+            "tooltip": "DeepSeek-V4 拥有百万字超长上下文，在 Agent 能力、世界知识和推理性能上均实现国内与开源领域的领先。DeepSeek-V4-Flash 是 DeepSeek-V4 系列的轻量高效版本，在保持 1M 超长上下文能力的同时，通过更小的模型参数与激活规模，提供更为快捷、经济的 API 服务。",
+            "maxInputTokens": 1000000,
+            "maxOutputTokens": 128000,
+            "reasoningEffort": ["high", "max", "none"],
+            "thinkingFormat": "object",
+            "capabilities": { "toolCalling": true, "imageInput": false }
+        },
+        {
+            "id": "deepseek-v4-pro",
+            "name": "DeepSeek-V4-Pro (按量计费)",
+            "tooltip": "DeepSeek-V4 拥有百万字超长上下文，在 Agent 能力、世界知识和推理性能上均实现国内与开源领域的领先。",
+            "maxInputTokens": 1000000,
+            "maxOutputTokens": 128000,
+            "reasoningEffort": ["high", "max", "none"],
+            "thinkingFormat": "object",
+            "capabilities": { "toolCalling": true, "imageInput": false }
+        },
         {
             "id": "deepseek-v3.2",
             "name": "DeepSeek-V3.2 (按量计费)",

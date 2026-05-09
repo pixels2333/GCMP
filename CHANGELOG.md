@@ -2,6 +2,18 @@
 
 本文档记录了 GCMP (AI Chat Models) 扩展的最近主要更改。
 
+## [0.22.9] - 2026-05-09
+
+### 新增
+
+- **百度千帆**：新增 DeepSeek-V4 系列模型
+    - **Coding Plan**：**DeepSeek-V4-Flash**、**GLM-5.1**
+    - **按量计费**：**DeepSeek-V4-Flash**、**DeepSeek-V4-Pro**
+
+### 修复
+
+- **请求中止残留空消息**：修复用户取消请求后，VS Code 保留的空 assistant 消息（仅含空白文本与空代码块）导致后续请求随机缓存命中暴降的问题（[#157](https://github.com/VicBilibily/GCMP/issues/157)）
+
 ## [0.22.8] - 2026-05-08
 
 ### 新增
