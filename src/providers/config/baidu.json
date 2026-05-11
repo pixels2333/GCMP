@@ -158,6 +158,16 @@
             "maxOutputTokens": 64000,
             "thinking": ["enabled", "disabled"],
             "capabilities": { "toolCalling": true, "imageInput": true }
+        },
+        {
+            "id": "ernie-5.1",
+            "name": "ERNIE-5.1 (按量计费)",
+            "model": "ernie-5.1",
+            "tooltip": "ERNIE 5.1是文心系列最新模型，基础能力全面升级，在智能体、知识、推理、深度搜索等方面均有显著提升。此次升级发布，采用分离式全异步强化学习技术，针对性解决大模型向智能体自主决策演进中面临的训推数值偏差、异构资源利用率低及长尾效应导致的全局等挑战。配套采用规模化智能体后训练技术来提升模型能力与泛化表现，让环境、专家、融合三步协同 ，既保证了训练效率，也显著提升模型在复杂任务中的稳定性与表现。",
+            "maxInputTokens": 119000,
+            "maxOutputTokens": 64000,
+            "thinking": ["enabled", "disabled"],
+            "capabilities": { "toolCalling": true, "imageInput": false }
         }
     ]
 }

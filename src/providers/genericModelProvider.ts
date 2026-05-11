@@ -245,6 +245,7 @@ export class GenericModelProvider implements LanguageModelChatProvider {
             category: { label: this.providerConfig.displayName, order: 3 },
             capabilities: model.capabilities,
             // multiplier: multiplier,
+            isUserSelectable: true, // VsCode 1.120.0 版本开始仅识别此值
             configurationSchema: Object.keys(properties).length > 0 ? { properties } : undefined
         };
         return info;
