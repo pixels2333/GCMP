@@ -6,7 +6,7 @@
     "models": [
         {
             "id": "MiniMax-M2.7-Coding-Plan",
-            "name": "MiniMax-M2.7 (Coding Plan)",
+            "name": "MiniMax-M2.7 (CodingPlan)",
             "model": "MiniMax-M2.7",
             "sdkMode": "anthropic",
             "baseUrl": "https://api.minimaxi.com/anthropic",
@@ -21,7 +21,7 @@
         },
         {
             "id": "MiniMax-M2.7-HighSpeed-Coding-Plan",
-            "name": "MiniMax-M2.7 极速版 (Coding Plan)",
+            "name": "MiniMax-M2.7-HighSpeed (CodingPlan)",
             "model": "MiniMax-M2.7-HighSpeed",
             "sdkMode": "anthropic",
             "baseUrl": "https://api.minimaxi.com/anthropic",
@@ -36,7 +36,7 @@
         },
         {
             "id": "MiniMax-M2.5-Coding-Plan",
-            "name": "MiniMax-M2.5 (Coding Plan)",
+            "name": "MiniMax-M2.5 (CodingPlan)",
             "model": "MiniMax-M2.5",
             "sdkMode": "anthropic",
             "baseUrl": "https://api.minimaxi.com/anthropic",
@@ -51,7 +51,7 @@
         },
         {
             "id": "MiniMax-M2.5-HighSpeed-Coding-Plan",
-            "name": "MiniMax-M2.5 极速版 (Coding Plan)",
+            "name": "MiniMax-M2.5-HighSpeed (CodingPlan)",
             "model": "MiniMax-M2.5-HighSpeed",
             "sdkMode": "anthropic",
             "baseUrl": "https://api.minimaxi.com/anthropic",
@@ -66,7 +66,7 @@
         },
         {
             "id": "MiniMax-M2.1-Coding-Plan",
-            "name": "MiniMax-M2.1 (Coding Plan)",
+            "name": "MiniMax-M2.1 (CodingPlan)",
             "model": "MiniMax-M2.1",
             "sdkMode": "anthropic",
             "baseUrl": "https://api.minimaxi.com/anthropic",
@@ -81,7 +81,7 @@
         },
         {
             "id": "MiniMax-M2-Coding-Plan",
-            "name": "MiniMax-M2 (Coding Plan)",
+            "name": "MiniMax-M2 (CodingPlan)",
             "model": "MiniMax-M2",
             "sdkMode": "anthropic",
             "baseUrl": "https://api.minimaxi.com/anthropic",
@@ -96,7 +96,7 @@
         },
         {
             "id": "MiniMax-M2.7",
-            "name": "MiniMax-M2.7 (按量计费)",
+            "name": "MiniMax-M2.7 (PayGo)",
             "sdkMode": "anthropic",
             "baseUrl": "https://api.minimaxi.com/anthropic",
             "tooltip": "开启模型的自我迭代（输出速度约 60 TPS）",
@@ -109,7 +109,7 @@
         },
         {
             "id": "MiniMax-M2.7-HighSpeed",
-            "name": "MiniMax-M2.7 极速版 (按量计费)",
+            "name": "MiniMax-M2.7-HighSpeed (PayGo)",
             "sdkMode": "anthropic",
             "baseUrl": "https://api.minimaxi.com/anthropic",
             "tooltip": "M2.7 极速版：效果不变，更快，更敏捷（输出速度约 100 TPS）",
@@ -122,7 +122,7 @@
         },
         {
             "id": "MiniMax-M2.5",
-            "name": "MiniMax-M2.5 (按量计费)",
+            "name": "MiniMax-M2.5 (PayGo)",
             "sdkMode": "anthropic",
             "baseUrl": "https://api.minimaxi.com/anthropic",
             "tooltip": "顶尖性能与极致性价比，轻松驾驭复杂任务（输出速度约 60 TPS）",
@@ -135,7 +135,7 @@
         },
         {
             "id": "MiniMax-M2.5-HighSpeed",
-            "name": "MiniMax-M2.5 极速版 (按量计费)",
+            "name": "MiniMax-M2.5-HighSpeed (PayGo)",
             "sdkMode": "anthropic",
             "baseUrl": "https://api.minimaxi.com/anthropic",
             "tooltip": "M2.5 极速版：效果不变，更快，更敏捷（输出速度约 100 TPS）",
@@ -148,7 +148,7 @@
         },
         {
             "id": "MiniMax-M2.1",
-            "name": "MiniMax-M2.1 (按量计费)",
+            "name": "MiniMax-M2.1 (PayGo)",
             "sdkMode": "anthropic",
             "baseUrl": "https://api.minimaxi.com/anthropic",
             "tooltip": "强大多语言编程能力，全面升级编程体验（输出速度约 60 TPS）",
@@ -161,7 +161,7 @@
         },
         {
             "id": "MiniMax-M2.1-HighSpeed",
-            "name": "MiniMax-M2.1 极速版 (按量计费)",
+            "name": "MiniMax-M2.1-HighSpeed (PayGo)",
             "sdkMode": "anthropic",
             "baseUrl": "https://api.minimaxi.com/anthropic",
             "tooltip": "M2.1 极速版：效果不变，更快，更敏捷（输出速度约 100 TPS）",
@@ -174,7 +174,7 @@
         },
         {
             "id": "MiniMax-M2",
-            "name": "MiniMax-M2 (按量计费)",
+            "name": "MiniMax-M2 (PayGo)",
             "sdkMode": "anthropic",
             "baseUrl": "https://api.minimaxi.com/anthropic",
             "tooltip": "专为高效编码与Agent工作流而生",

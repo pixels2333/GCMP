@@ -169,7 +169,7 @@ export class GenericModelProvider implements LanguageModelChatProvider {
                 title: '思考模式',
                 enum: model.thinking,
                 enumItemLabels: model.thinking.map(
-                    t => ({ disabled: 'Disabled', enabled: 'Thinking', auto: 'Auto', adaptive: 'Adaptive' })[t] || t
+                    t => ({ disabled: 'Non-Thinking', enabled: 'Thinking', auto: 'Auto', adaptive: 'Adaptive' })[t] || t
                 ),
                 enumDescriptions: model.thinking.map(
                     t =>

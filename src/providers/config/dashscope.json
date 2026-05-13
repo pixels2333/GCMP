@@ -7,7 +7,7 @@
     "models": [
         {
             "id": "qwen3.6-plus-coding-plan",
-            "name": "Qwen3.6-Plus (Coding Plan)",
+            "name": "Qwen3.6-Plus (CodingPlan)",
             "tooltip": "Dashscope Coding Plan 编程套餐专属接入点（Anthropic API 兼容协议）。",
             "provider": "dashscope-coding",
             "sdkMode": "anthropic",
@@ -23,7 +23,7 @@
         },
         {
             "id": "qwen3.5-plus-coding-plan",
-            "name": "Qwen3.5-Plus (Coding Plan)",
+            "name": "Qwen3.5-Plus (CodingPlan)",
             "tooltip": "Dashscope Coding Plan 编程套餐专属接入点（Anthropic API 兼容协议）。",
             "provider": "dashscope-coding",
             "sdkMode": "anthropic",
@@ -39,7 +39,7 @@
         },
         {
             "id": "qwen3-max-coding-plan",
-            "name": "Qwen3-Max (Coding Plan)",
+            "name": "Qwen3-Max (CodingPlan)",
             "tooltip": "Dashscope Coding Plan 编程套餐专属接入点（Anthropic API 兼容协议）。",
             "sdkMode": "anthropic",
             "baseUrl": "https://coding.dashscope.aliyuncs.com/apps/anthropic",
@@ -54,7 +54,7 @@
         },
         {
             "id": "qwen3-max-thinking-coding-plan",
-            "name": "Qwen3-Max (Thinking) (Coding Plan)",
+            "name": "Qwen3-Max (Thinking) (CodingPlan)",
             "tooltip": "Dashscope Coding Plan 编程套餐专属接入点（Anthropic API 兼容协议）。",
             "sdkMode": "anthropic",
             "baseUrl": "https://coding.dashscope.aliyuncs.com/apps/anthropic",
@@ -72,7 +72,7 @@
         },
         {
             "id": "qwen3-coder-next-coding-plan",
-            "name": "Qwen3-Coder-Next (Coding Plan)",
+            "name": "Qwen3-Coder-Next (CodingPlan)",
             "tooltip": "Dashscope Coding Plan 编程套餐专属接入点（Anthropic API 兼容协议）。",
             "sdkMode": "anthropic",
             "baseUrl": "https://coding.dashscope.aliyuncs.com/apps/anthropic",
@@ -87,7 +87,7 @@
         },
         {
             "id": "qwen3-coder-plus-coding-plan",
-            "name": "Qwen3-Coder-Plus (Coding Plan)",
+            "name": "Qwen3-Coder-Plus (CodingPlan)",
             "tooltip": "Dashscope Coding Plan 编程套餐专属接入点（Anthropic API 兼容协议）。",
             "sdkMode": "anthropic",
             "baseUrl": "https://coding.dashscope.aliyuncs.com/apps/anthropic",
@@ -102,7 +102,7 @@
         },
         {
             "id": "minimax-m2.5-coding-plan",
-            "name": "MiniMax-M2.5 (Coding Plan)",
+            "name": "MiniMax-M2.5 (CodingPlan)",
             "tooltip": "Dashscope Coding Plan 编程套餐专属接入点（Anthropic API 兼容协议）。",
             "provider": "dashscope-coding",
             "sdkMode": "anthropic",
@@ -117,7 +117,7 @@
         },
         {
             "id": "glm-5-coding-plan",
-            "name": "GLM-5 (Coding Plan)",
+            "name": "GLM-5 (CodingPlan)",
             "tooltip": "Dashscope Coding Plan 编程套餐专属接入点（Anthropic API 兼容协议）。",
             "provider": "dashscope-coding",
             "sdkMode": "anthropic",
@@ -133,7 +133,7 @@
         },
         {
             "id": "glm-4.7-coding-plan",
-            "name": "GLM-4.7 (Coding Plan)",
+            "name": "GLM-4.7 (CodingPlan)",
             "tooltip": "Dashscope Coding Plan 编程套餐专属接入点（Anthropic API 兼容协议）。",
             "provider": "dashscope-coding",
             "sdkMode": "anthropic",
@@ -149,7 +149,7 @@
         },
         {
             "id": "kimi-k2.5-coding-plan",
-            "name": "Kimi-K2.5 (Coding Plan)",
+            "name": "Kimi-K2.5 (CodingPlan)",
             "tooltip": "Dashscope Coding Plan 编程套餐专属接入点（Anthropic API 兼容协议）。",
             "provider": "dashscope-coding",
             "sdkMode": "anthropic",
@@ -313,7 +313,7 @@
         },
         {
             "id": "qwen3.6-plus-token-plan",
-            "name": "Qwen3.6-Plus (Token Plan)",
+            "name": "Qwen3.6-Plus (TokenPlan)",
             "tooltip": "Dashscope Token Plan 团队版专属接入点（Anthropic API 兼容协议）。",
             "provider": "dashscope-token",
             "sdkMode": "anthropic",
@@ -329,7 +329,7 @@
         },
         {
             "id": "glm-5-token-plan",
-            "name": "GLM-5 (Token Plan)",
+            "name": "GLM-5 (TokenPlan)",
             "tooltip": "Dashscope Token Plan 团队版专属接入点（Anthropic API 兼容协议）。",
             "provider": "dashscope-token",
             "sdkMode": "anthropic",
@@ -345,7 +345,7 @@
         },
         {
             "id": "minimax-m2.5-token-plan",
-            "name": "MiniMax-M2.5 (Token Plan)",
+            "name": "MiniMax-M2.5 (TokenPlan)",
             "tooltip": "Dashscope Token Plan 团队版专属接入点（Anthropic API 兼容协议）。",
             "provider": "dashscope-token",
             "sdkMode": "anthropic",
@@ -360,7 +360,7 @@
         },
         {
             "id": "deepseek-v3.2-token-plan",
-            "name": "DeepSeek-V3.2 (Token Plan)",
+            "name": "DeepSeek-V3.2 (TokenPlan)",
             "tooltip": "Dashscope Token Plan 团队版专属接入点（Anthropic API 兼容协议）。",
             "provider": "dashscope-token",
             "sdkMode": "anthropic",

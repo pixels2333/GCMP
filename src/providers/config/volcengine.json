@@ -6,7 +6,7 @@
     "models": [
         {
             "id": "ark-code-doubao-seed-code",
-            "name": "Doubao-Seed-Code (Coding Plan)",
+            "name": "Doubao-Seed-Code (CodingPlan)",
             "model": "doubao-seed-code",
             "sdkMode": "anthropic",
             "baseUrl": "https://ark.cn-beijing.volces.com/api/coding",
@@ -21,7 +21,7 @@
         },
         {
             "id": "ark-code-doubao-seed-2.0-code",
-            "name": "Doubao-Seed-2.0-Code (Coding Plan)",
+            "name": "Doubao-Seed-2.0-Code (CodingPlan)",
             "model": "doubao-seed-2.0-code",
             "sdkMode": "anthropic",
             "baseUrl": "https://ark.cn-beijing.volces.com/api/coding",
@@ -36,7 +36,7 @@
         },
         {
             "id": "ark-code-doubao-seed-2.0-lite",
-            "name": "Doubao-Seed-2.0-lite (Coding Plan)",
+            "name": "Doubao-Seed-2.0-lite (CodingPlan)",
             "model": "doubao-seed-2.0-lite",
             "sdkMode": "anthropic",
             "baseUrl": "https://ark.cn-beijing.volces.com/api/coding",
@@ -51,7 +51,7 @@
         },
         {
             "id": "ark-code-doubao-seed-2.0-pro",
-            "name": "Doubao-Seed-2.0-pro (Coding Plan)",
+            "name": "Doubao-Seed-2.0-pro (CodingPlan)",
             "model": "doubao-seed-2.0-pro",
             "sdkMode": "anthropic",
             "baseUrl": "https://ark.cn-beijing.volces.com/api/coding",
@@ -66,7 +66,7 @@
         },
         {
             "id": "ark-code-kimi-k2.6",
-            "name": "Kimi-K2.6 (Coding Plan)",
+            "name": "Kimi-K2.6 (CodingPlan)",
             "model": "kimi-k2.6",
             "sdkMode": "anthropic",
             "baseUrl": "https://ark.cn-beijing.volces.com/api/coding",
@@ -81,7 +81,7 @@
         },
         {
             "id": "ark-code-kimi-k2.5",
-            "name": "Kimi-K2.5 (Coding Plan)",
+            "name": "Kimi-K2.5 (CodingPlan)",
             "model": "kimi-k2.5",
             "sdkMode": "anthropic",
             "baseUrl": "https://ark.cn-beijing.volces.com/api/coding",
@@ -96,7 +96,7 @@
         },
         {
             "id": "ark-code-glm-5.1",
-            "name": "GLM-5.1 (Coding Plan)",
+            "name": "GLM-5.1 (CodingPlan)",
             "model": "glm-5.1",
             "sdkMode": "anthropic",
             "baseUrl": "https://ark.cn-beijing.volces.com/api/coding",
@@ -111,7 +111,7 @@
         },
         {
             "id": "ark-code-glm-4.7",
-            "name": "GLM-4.7 (Coding Plan)",
+            "name": "GLM-4.7 (CodingPlan)",
             "model": "glm-4.7",
             "sdkMode": "anthropic",
             "baseUrl": "https://ark.cn-beijing.volces.com/api/coding",
@@ -126,7 +126,7 @@
         },
         {
             "id": "ark-code-MiniMax-M2.7",
-            "name": "MiniMax-M2.7 (Coding Plan)",
+            "name": "MiniMax-M2.7 (CodingPlan)",
             "model": "MiniMax-M2.7",
             "sdkMode": "anthropic",
             "baseUrl": "https://ark.cn-beijing.volces.com/api/coding",
@@ -140,7 +140,7 @@
         },
         {
             "id": "ark-code-MiniMax-M2.5",
-            "name": "MiniMax-M2.5 (Coding Plan)",
+            "name": "MiniMax-M2.5 (CodingPlan)",
             "model": "MiniMax-M2.5",
             "sdkMode": "anthropic",
             "baseUrl": "https://ark.cn-beijing.volces.com/api/coding",
@@ -154,7 +154,7 @@
         },
         {
             "id": "ark-code-deepseek-v3.2",
-            "name": "Deepseek V3.2 (Coding Plan)",
+            "name": "Deepseek V3.2 (CodingPlan)",
             "model": "deepseek-v3.2",
             "sdkMode": "anthropic",
             "baseUrl": "https://ark.cn-beijing.volces.com/api/coding",

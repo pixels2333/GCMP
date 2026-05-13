@@ -7,7 +7,7 @@
     "models": [
         {
             "id": "hunyuan-2.0-instruct-coding-plan",
-            "name": "Tencent HY 2.0 Instruct (Coding Plan)",
+            "name": "Tencent HY 2.0 Instruct (CodingPlan)",
             "tooltip": "腾讯云 Coding Plan 专属接入点中的 Tencent HY 2.0 Instruct。",
             "provider": "tencent-coding",
             "sdkMode": "anthropic",
@@ -19,7 +19,7 @@
         },
         {
             "id": "hunyuan-2.0-thinking-coding-plan",
-            "name": "Tencent HY 2.0 Think (Coding Plan)",
+            "name": "Tencent HY 2.0 Think (CodingPlan)",
             "tooltip": "腾讯云 Coding Plan 专属接入点中的 Tencent HY 2.0 Think。",
             "provider": "tencent-coding",
             "sdkMode": "anthropic",
@@ -31,7 +31,7 @@
         },
         {
             "id": "glm-5-coding-plan",
-            "name": "GLM-5 (Coding Plan)",
+            "name": "GLM-5 (CodingPlan)",
             "tooltip": "腾讯云 Coding Plan 专属接入点中的 GLM-5。",
             "provider": "tencent-coding",
             "sdkMode": "anthropic",
@@ -44,7 +44,7 @@
         },
         {
             "id": "minimax-m2.5-coding-plan",
-            "name": "MiniMax-M2.5 (Coding Plan)",
+            "name": "MiniMax-M2.5 (CodingPlan)",
             "tooltip": "腾讯云 Coding Plan 专属接入点中的 MiniMax M2.5。",
             "provider": "tencent-coding",
             "sdkMode": "anthropic",
@@ -56,7 +56,7 @@
         },
         {
             "id": "kimi-k2.5-coding-plan",
-            "name": "Kimi-K2.5 (Coding Plan)",
+            "name": "Kimi-K2.5 (CodingPlan)",
             "tooltip": "腾讯云 Coding Plan 专属接入点中的 Kimi K2.5。",
             "provider": "tencent-coding",
             "baseUrl": "https://api.lkeap.cloud.tencent.com/coding/v3",
@@ -68,7 +68,7 @@
         },
         {
             "id": "hy3-preview-token-plan",
-            "name": "HY 3 Preview (Token Plan)",
+            "name": "HY 3 Preview (TokenPlan)",
             "tooltip": "腾讯云 Token Plan 按量付费中的 Hy3 preview。",
             "provider": "tencent-token",
             "sdkMode": "anthropic",
@@ -81,7 +81,7 @@
         },
         {
             "id": "glm-5.1-token-plan",
-            "name": "GLM-5.1 (Token Plan)",
+            "name": "GLM-5.1 (TokenPlan)",
             "tooltip": "腾讯云 Token Plan 专属接入点中的 GLM-5.1。",
             "provider": "tencent-token",
             "sdkMode": "anthropic",
@@ -94,7 +94,7 @@
         },
         {
             "id": "glm-5-token-plan",
-            "name": "GLM-5 (Token Plan)",
+            "name": "GLM-5 (TokenPlan)",
             "tooltip": "腾讯云 Token Plan 专属接入点中的 GLM-5。",
             "provider": "tencent-token",
             "sdkMode": "anthropic",
@@ -107,7 +107,7 @@
         },
         {
             "id": "minimax-m2.7-token-plan",
-            "name": "MiniMax-M2.7 (Token Plan)",
+            "name": "MiniMax-M2.7 (TokenPlan)",
             "tooltip": "腾讯云 Token Plan 专属接入点中的 MiniMax M2.7。",
             "provider": "tencent-token",
             "sdkMode": "anthropic",
@@ -119,7 +119,7 @@
         },
         {
             "id": "minimax-m2.5-token-plan",
-            "name": "MiniMax-M2.5 (Token Plan)",
+            "name": "MiniMax-M2.5 (TokenPlan)",
             "tooltip": "腾讯云 Token Plan 专属接入点中的 MiniMax M2.5。",
             "provider": "tencent-token",
             "sdkMode": "anthropic",
@@ -131,7 +131,7 @@
         },
         {
             "id": "kimi-k2.5-token-plan",
-            "name": "Kimi-K2.5 (Token Plan)",
+            "name": "Kimi-K2.5 (TokenPlan)",
             "tooltip": "腾讯云 Token Plan 专属接入点中的 Kimi K2.5。",
             "provider": "tencent-token",
             "sdkMode": "anthropic",
@@ -144,7 +144,7 @@
         },
         {
             "id": "glm-5",
-            "name": "GLM-5 (按量计费)",
+            "name": "GLM-5 (PayGo)",
             "tooltip": "腾讯云第三方大模型 OpenAI 兼容接口中的 GLM-5。",
             "provider": "tencent",
             "sdkMode": "openai",
@@ -156,7 +156,7 @@
         },
         {
             "id": "minimax-m2.5",
-            "name": "MiniMax-M2.5 (按量计费)",
+            "name": "MiniMax-M2.5 (PayGo)",
             "tooltip": "腾讯云第三方大模型 OpenAI 兼容接口中的 MiniMax M2.5。",
             "provider": "tencent",
             "sdkMode": "openai",
@@ -167,7 +167,7 @@
         },
         {
             "id": "kimi-k2.5",
-            "name": "Kimi-K2.5 (按量计费)",
+            "name": "Kimi-K2.5 (PayGo)",
             "tooltip": "腾讯云第三方大模型 OpenAI 兼容接口中的 Kimi K2.5。",
             "provider": "tencent",
             "sdkMode": "openai",
@@ -179,7 +179,7 @@
         },
         {
             "id": "deepseek-v3.2",
-            "name": "DeepSeek-V3.2 (按量计费)",
+            "name": "DeepSeek-V3.2 (PayGo)",
             "tooltip": "DeepSeek-V3.2 为 685B 参数 MoE 模型，其引入的稀疏注意力架构使长文本处理更高效，并在推理评测中达到GPT-5水平。",
             "provider": "tencent-deepseek",
             "sdkMode": "openai",
@@ -191,7 +191,7 @@
         },
         {
             "id": "hunyuan-2.0-instruct-tokenhub",
-            "name": "Tencent HY 2.0 Instruct (TokenHub计费)",
+            "name": "Tencent HY 2.0 Instruct (TokenHub)",
             "tooltip": "腾讯云 TokenHub 按量付费中的 Tencent HY 2.0 Instruct。",
             "provider": "tencent-tokenhub",
             "sdkMode": "anthropic",
@@ -203,7 +203,7 @@
         },
         {
             "id": "hunyuan-2.0-thinking-tokenhub",
-            "name": "Tencent HY 2.0 Think (TokenHub计费)",
+            "name": "Tencent HY 2.0 Think (TokenHub)",
             "tooltip": "腾讯云 TokenHub 按量付费中的 Tencent HY 2.0 Think。",
             "provider": "tencent-tokenhub",
             "sdkMode": "anthropic",
@@ -215,7 +215,7 @@
         },
         {
             "id": "hy3-preview-tokenhub",
-            "name": "HY 3 Preview (TokenHub计费)",
+            "name": "HY 3 Preview (TokenHub)",
             "tooltip": "腾讯云 TokenHub 按量付费中的 Hy3 preview。",
             "provider": "tencent-tokenhub",
             "sdkMode": "anthropic",
@@ -228,7 +228,7 @@
         },
         {
             "id": "glm-5.1-tokenhub",
-            "name": "GLM-5.1 (TokenHub计费)",
+            "name": "GLM-5.1 (TokenHub)",
             "tooltip": "腾讯云 TokenHub 按量付费中的 GLM-5.1。",
             "provider": "tencent-tokenhub",
             "sdkMode": "anthropic",
@@ -241,7 +241,7 @@
         },
         {
             "id": "glm-5-turbo-tokenhub",
-            "name": "GLM-5-Turbo (TokenHub计费)",
+            "name": "GLM-5-Turbo (TokenHub)",
             "tooltip": "腾讯云 TokenHub 按量付费中的 GLM-5-Turbo。",
             "provider": "tencent-tokenhub",
             "sdkMode": "anthropic",
@@ -253,7 +253,7 @@
         },
         {
             "id": "glm-5-tokenhub",
-            "name": "GLM-5 (TokenHub计费)",
+            "name": "GLM-5 (TokenHub)",
             "tooltip": "腾讯云 TokenHub 按量付费中的 GLM-5。",
             "provider": "tencent-tokenhub",
             "sdkMode": "anthropic",
@@ -266,7 +266,7 @@
         },
         {
             "id": "deepseek-v4-flash-tokenhub",
-            "name": "DeepSeek-V4-Flash (TokenHub计费)",
+            "name": "DeepSeek-V4-Flash (TokenHub)",
             "tooltip": "腾讯云 TokenHub 按量付费中的 DeepSeek-V4-Flash。",
             "provider": "tencent-tokenhub",
             "sdkMode": "anthropic",
@@ -279,7 +279,7 @@
         },
         {
             "id": "deepseek-v4-pro-tokenhub",
-            "name": "DeepSeek-V4-Pro (TokenHub计费)",
+            "name": "DeepSeek-V4-Pro (TokenHub)",
             "tooltip": "腾讯云 TokenHub 按量付费中的 DeepSeek-V4-Pro。",
             "provider": "tencent-tokenhub",
             "sdkMode": "anthropic",
@@ -292,7 +292,7 @@
         },
         {
             "id": "deepseek-v3.2-tokenhub",
-            "name": "DeepSeek-V3.2 (TokenHub计费)",
+            "name": "DeepSeek-V3.2 (TokenHub)",
             "tooltip": "腾讯云 TokenHub 按量付费中的 DeepSeek-V3.2。",
             "provider": "tencent-tokenhub",
             "sdkMode": "anthropic",
@@ -305,7 +305,7 @@
         },
         {
             "id": "kimi-k2.6-tokenhub",
-            "name": "Kimi-K2.6 (TokenHub计费)",
+            "name": "Kimi-K2.6 (TokenHub)",
             "tooltip": "腾讯云 TokenHub 按量付费中的 Kimi K2.6。",
             "provider": "tencent-tokenhub",
             "sdkMode": "anthropic",
@@ -318,7 +318,7 @@
         },
         {
             "id": "kimi-k2.5-tokenhub",
-            "name": "Kimi-K2.5 (TokenHub计费)",
+            "name": "Kimi-K2.5 (TokenHub)",
             "tooltip": "腾讯云 TokenHub 按量付费中的 Kimi K2.5。",
             "provider": "tencent-tokenhub",
             "sdkMode": "anthropic",
@@ -331,7 +331,7 @@
         },
         {
             "id": "minimax-m2.7-tokenhub",
-            "name": "MiniMax-M2.7 (TokenHub计费)",
+            "name": "MiniMax-M2.7 (TokenHub)",
             "tooltip": "腾讯云 TokenHub 按量付费中的 MiniMax M2.7。",
             "provider": "tencent-tokenhub",
             "sdkMode": "anthropic",
@@ -343,7 +343,7 @@
         },
         {
             "id": "minimax-m2.5-tokenhub",
-            "name": "MiniMax-M2.5 (TokenHub计费)",
+            "name": "MiniMax-M2.5 (TokenHub)",
             "tooltip": "腾讯云 TokenHub 按量付费中的 MiniMax M2.5。",
             "provider": "tencent-tokenhub",
             "sdkMode": "anthropic",

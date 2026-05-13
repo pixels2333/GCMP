@@ -2,6 +2,19 @@
 
 本文档记录了 GCMP (AI Chat Models) 扩展的最近主要更改。
 
+## [0.22.11] - 2026-05-13
+
+### 修复
+
+- **MiMo 多轮工具调用推理丢失**：重构思考内容回放策略，修复 MiMo 模型在多轮工具调用场景下 `reasoning_content` 未正确传回 API 导致请求失败的问题（[#171](https://github.com/VicBilibily/GCMP/issues/171)）
+    - 提取通用策略模块 `reasoningReplayPolicy`，替代原 DeepSeek-V4 硬编码逻辑
+    - OpenAI 与 Anthropic 两条转换路径均已适配
+- **工具调用参数解析失败**：修复 `deduplicateToolArgs` 误删单字符标点导致工具调用参数解析失败的问题（[#173](https://github.com/VicBilibily/GCMP/pull/173)）
+
+### 优化
+
+- **模型计费描述统一**：统一将模型名称中的"按量计费"和"按量付费"更改为 **PayGo**，涵盖智谱AI、MiniMax、快手万擎、腾讯云、百度千帆等提供商
+
 ## [0.22.10] - 2026-05-11
 
 ### 新增

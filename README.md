@@ -31,11 +31,11 @@
 
 > 本扩展仅预置存在自有模型的一线大模型提供商（如具备模型自研能力的主流云厂商），第三方模型接入请使用「OpenAI / Anthropic Compatible」兼容模式。
 
-### [**智谱AI**](https://bigmodel.cn/)
+### [**智谱AI**](https://bigmodel.cn/) - ZhipuAI
 
 - [**编程套餐**](https://bigmodel.cn/glm-coding)：**GLM-5.1**、**GLM-5V-Turbo**、**GLM-5-Turbo**、**GLM-4.7**、**GLM-4.6**、**GLM-4.6V**、**GLM-4.5-Air**
     - **用量查询**：已支持状态栏显示周期剩余用量，可查看 GLM Coding Plan 用量信息。
-- **按量计费**：**GLM-5.1**、**GLM-5V-Turbo**、**GLM-5-Turbo**、**GLM-5**、**GLM-4.7**、**GLM-4.7-FlashX**、**GLM-4.6**、**GLM-4.6V**、**GLM-4.5-Air**
+- **按量计费(PayGo)**：**GLM-5.1**、**GLM-5V-Turbo**、**GLM-5-Turbo**、**GLM-5**、**GLM-4.7**、**GLM-4.7-FlashX**、**GLM-4.6**、**GLM-4.6V**、**GLM-4.5-Air**
 - **免费模型**：**GLM-4.6V-Flash**、**GLM-4.7-Flash**
 - [**国际站点**](https://z.ai/model-api)：已支持国际站(z.ai)切换设置。
 - **搜索功能**：集成 `联网搜索MCP` 及 `Web Search API`，支持 `#zhipuWebSearch` 进行联网搜索。
@@ -49,7 +49,7 @@
     - **图片识别**：集成 Coding Plan 图片理解MCP，直接直接粘贴图片或截图进行 Agent 交互。
     - **用量查询**：已支持状态栏显示周期剩余用量，可查看 Coding Plan 编程套餐用量信息。
     - **[国际站点](https://platform.minimax.io/subscribe/coding-plan)**：已支持国际站 Coding Plan 编程套餐使用。
-- **按量计费**：**MiniMax-M2.7**(极速版)、**MiniMax-M2.5**(极速版)、**MiniMax-M2.1**(极速版)、**MiniMax-M2**
+- **按量计费(PayGo)**：**MiniMax-M2.7**(极速版)、**MiniMax-M2.5**(极速版)、**MiniMax-M2.1**(极速版)、**MiniMax-M2**
 
 ### [**MoonshotAI**](https://platform.moonshot.cn/)
 
@@ -64,7 +64,7 @@
 - 预置模型：**DeepSeek-V4-Flash**(快速模式)、**DeepSeek-V4-Pro**(专家模式)
     - **余额查询**：已支持状态栏显示当前账户额度，可查看账户余额详情。
 
-### [**阿里云百炼**](https://bailian.console.aliyun.com/)
+### [**阿里云百炼**](https://bailian.console.aliyun.com/) - Aliyun DashScope
 
 - [**Coding Plan**](https://www.aliyun.com/benefit/scene/codingplan)
     - 推荐模型：**Qwen3.6-Plus**、**Kimi-K2.5**、**GLM-5**、**MiniMax-M2.5**
@@ -77,9 +77,9 @@
 ### [**快手万擎**](https://streamlake.com/product/kat-coder) - StreamLake
 
 - [**KwaiKAT Coding Plan**](https://streamlake.com/marketing/coding-plan)：**KAT-Coder-Pro-V2**
-- **KAT-Coder系列**：**KAT-Coder-Pro-V2**(按量付费)
+- **KAT-Coder系列**：**KAT-Coder-Pro-V2**(PayGo)
 
-### [**火山方舟**](https://www.volcengine.com/product/ark)
+### [**火山方舟**](https://www.volcengine.com/product/ark) - Volcengine
 
 - [**Coding Plan 套餐**](https://www.volcengine.com/activity/codingplan)：
     - 豆包模型：**Doubao-Seed-2.0-Code**、**Doubao-Seed-Code**、**Doubao-Seed-2.0-lite**、**Doubao-Seed-2.0-pro**
@@ -91,7 +91,7 @@
 - **协作奖励计划**：**GLM-4.7**、**DeepSeek-V3.2**
 - **密钥配置**：支持设置 [Coding Plan API Key](https://console.volcengine.com/ark/region:ark+cn-beijing/apiKey) 与 [Agent Plan 专用 API Key](https://console.volcengine.com/ark/region:ark+cn-beijing/openManagement?LLM=%7B%7D&advancedActiveKey=agentPlan) 分别设置，配置向导引导选择套餐类型。
 
-### [**腾讯云**](https://cloud.tencent.com/product/hunyuan)
+### [**腾讯云**](https://cloud.tencent.com/product/hunyuan) - Tencent Cloud
 
 - [**Coding Plan**](https://console.cloud.tencent.com/tokenhub/codingplan)
     - 混元模型：**Tencent HY 2.0 Instruct**、**Tencent HY 2.0 Think**
@@ -102,14 +102,14 @@
 
 ### [**Xiaomi MiMo**](https://platform.xiaomimimo.com/#/console/api-keys)
 
-- 按量计费：**MiMo-V2.5-Pro**、**MiMo-V2.5**、**MiMo-V2-Pro**、**MiMo-V2-Omni**、**MiMo-V2-Flash**
+- **按量计费(PayGo)**：**MiMo-V2.5-Pro**、**MiMo-V2.5**、**MiMo-V2-Pro**、**MiMo-V2-Omni**、**MiMo-V2-Flash**
 - [**Token Plan**](https://platform.xiaomimimo.com/#/token-plan)：**MiMo-V2.5-Pro**、**MiMo-V2.5**、**MiMo-V2-Pro**、**MiMo-V2-Omni**
     - [区域集群](https://platform.xiaomimimo.com/#/docs/tokenplan/subscription?target=快速指南)：可切换选择`中国集群(cn)`、`新加坡集群(sgp)`、`欧洲集群(ams)`，按[订阅管理](https://platform.xiaomimimo.com/#/console/plan-manage)页面展示为准。
 - **密钥配置**：支持设置 [Xiaomi MiMo API Key](https://platform.xiaomimimo.com/#/console/api-keys) 与 [Token Plan 专用 API Key](https://platform.xiaomimimo.com/#/console/plan-manage) 分别设置。
 
-### [**百度千帆**](https://cloud.baidu.com/product-s/qianfan_home)
+### [**百度千帆**](https://cloud.baidu.com/product-s/qianfan_home) - Baidu Qianfan
 
-- **按量计费**：**DeepSeek-V4-Flash**、**DeepSeek-V4-Pro**、**DeepSeek-V3.2**、**GLM-5**、**GLM-5.1**、**Kimi-K2.5**、**MiniMax-M2.5**、**ERNIE-5.1**、**ERNIE-5.0**
+- **按量计费(PayGo)**：**DeepSeek-V4-Flash**、**DeepSeek-V4-Pro**、**DeepSeek-V3.2**、**GLM-5**、**GLM-5.1**、**Kimi-K2.5**、**MiniMax-M2.5**、**ERNIE-5.1**、**ERNIE-5.0**
 - [**Coding Plan 编程套餐**](https://cloud.baidu.com/product/codingplan)：**DeepSeek-V4-Flash**、**GLM-5.1**、**DeepSeek-V3.2**、**GLM-5**、**Kimi-K2.5**、**MiniMax-M2.5**
 - **密钥配置**：支持设置 [百度千帆 API Key](https://console.bce.baidu.com/qianfan/ais/console/apiKey) 与 [Coding Plan 专用 API Key](https://console.bce.baidu.com/qianfan/resource/subscribe) 分别设置。
 
