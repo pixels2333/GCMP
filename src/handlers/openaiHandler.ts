@@ -11,6 +11,7 @@ import { ApiKeyManager } from '../utils/apiKeyManager';
 import { TokenUsagesManager } from '../usages/usagesManager';
 import { ModelChatResponseOptions, ModelConfig, ProviderConfig } from '../types/sharedTypes';
 import { StreamReporter } from './streamReporter';
+import { getReasoningReplayPolicy, shouldInjectReasoningPlaceholder } from './reasoningReplayPolicy';
 import { decodeStatefulMarker } from './statefulMarker';
 import { CustomDataPartMimeTypes } from './types';
 import type { GenericModelProvider } from '../providers/genericModelProvider';
@@ -1033,11 +1034,15 @@ export class OpenAIHandler {
      */
     private convertAssistantMessage(
         message: vscode.LanguageModelChatMessage,
-        _modelConfig?: ModelConfig
+        modelConfig?: ModelConfig
     ): OpenAI.Chat.ChatCompletionAssistantMessageParam | null {
         const textContent = this.extractTextContent(message.content);
         const toolCalls: OpenAI.Chat.ChatCompletionMessageToolCall[] = [];
         let thinkingContent: string | null = null;
+        const reasoningReplayPolicy = getReasoningReplayPolicy({
+            providerKey: this.provider,
+            modelConfig: modelConfig
+        });
 
         // 处理工具调用和思考内容（去重：同一 callId 只保留第一个）
         const seenCallIds = new Set<string>();
@@ -1073,19 +1078,21 @@ export class OpenAIHandler {
             }
         }
 
-        // 如果 ThinkingPart 被 VS Code 剥离，仅 DeepSeek-V4 从 StatefulMarker 恢复
-        if (!thinkingContent) {
-            const modelId = _modelConfig?.model || _modelConfig?.id || '';
-            // 仅针对 DeepSeek-V4 模型尝试从 StatefulMarker 恢复思考内容，其他模型不处理
-            if (modelId.toLowerCase().includes('deepseek-v4')) {
-                const markerThinking = getMarkerThinking(message.content);
-                if (markerThinking) {
-                    thinkingContent = markerThinking;
-                    Logger.trace(`从 StatefulMarker 恢复 reasoning_content: ${thinkingContent.length} 字符`);
-                } else {
-                    thinkingContent = ' '; // 占位符，确保字段存在但不为空
-                    Logger.trace('未找到 StatefulMarker，使用占位符作为 reasoning_content');
-                }
+        // 如果 ThinkingPart 被 VS Code 剥离，则从 StatefulMarker 恢复兼容模型所需的 reasoning_content
+        if (!thinkingContent && reasoningReplayPolicy.restoreFromStatefulMarker) {
+            const markerReasoning = getMarkerReasoningState(message.content);
+            if (markerReasoning.completeThinking) {
+                thinkingContent = markerReasoning.completeThinking;
+                Logger.trace(`从 StatefulMarker 恢复 reasoning_content: ${thinkingContent.length} 字符`);
+            } else if (
+                shouldInjectReasoningPlaceholder(
+                    reasoningReplayPolicy,
+                    toolCalls.length > 0,
+                    markerReasoning.hasToolCalls
+                )
+            ) {
+                thinkingContent = ' '; // 保底占位，避免兼容接口因为字段缺失直接报错
+                Logger.trace('未找到 StatefulMarker thinking，使用占位符补齐 reasoning_content');
             }
         }
 
@@ -1272,7 +1279,10 @@ export class OpenAIHandler {
 /**
  * 从消息内容的 StatefulMarker 中提取 completeThinking
  */
-function getMarkerThinking(content: vscode.LanguageModelChatMessage['content']): string | undefined {
+function getMarkerReasoningState(content: vscode.LanguageModelChatMessage['content']): {
+    completeThinking?: string;
+    hasToolCalls?: boolean;
+} {
     for (const part of content) {
         if (
             part instanceof vscode.LanguageModelDataPart &&
@@ -1280,10 +1290,13 @@ function getMarkerThinking(content: vscode.LanguageModelChatMessage['content']):
             part.data instanceof Uint8Array
         ) {
             const marker = decodeStatefulMarker(part.data)?.marker;
-            if (marker?.completeThinking) {
-                return marker.completeThinking;
+            if (marker) {
+                return {
+                    completeThinking: marker.completeThinking,
+                    hasToolCalls: marker.hasToolCalls
+                };
             }
         }
     }
-    return undefined;
+    return {};
 }

@@ -169,7 +169,7 @@ export class GenericModelProvider implements LanguageModelChatProvider {
                 title: '思考模式',
                 enum: model.thinking,
                 enumItemLabels: model.thinking.map(
-                    t => ({ disabled: '关', enabled: '思考', auto: 'Auto', adaptive: 'Adaptive' })[t] || t
+                    t => ({ disabled: 'Disabled', enabled: 'Thinking', auto: 'Auto', adaptive: 'Adaptive' })[t] || t
                 ),
                 enumDescriptions: model.thinking.map(
                     t =>
@@ -199,9 +199,15 @@ export class GenericModelProvider implements LanguageModelChatProvider {
                 enum: model.reasoningEffort,
                 enumItemLabels: model.reasoningEffort.map(
                     level =>
-                        ({ none: '关', minimal: '关', low: '低', medium: '中', high: '高', xhigh: '超', max: '超' })[
-                            level
-                        ] || level
+                        ({
+                            none: 'None',
+                            minimal: 'Minimal',
+                            low: 'Low',
+                            medium: 'Medium',
+                            high: 'High',
+                            xhigh: 'XHigh',
+                            max: 'Max'
+                        })[level] || level
                 ),
                 enumDescriptions: model.reasoningEffort.map(
                     level =>

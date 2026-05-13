@@ -12,6 +12,7 @@
 import * as vscode from 'vscode';
 import Anthropic from '@anthropic-ai/sdk';
 import { sanitizeToolSchemaForTarget } from '../utils';
+import { getReasoningReplayPolicy, shouldInjectReasoningPlaceholder } from './reasoningReplayPolicy';
 import { decodeStatefulMarker } from './statefulMarker';
 import type {
     ContentBlockParam,
@@ -67,12 +68,16 @@ function getStatefulMarkerThinking(content: vscode.LanguageModelChatMessage['con
 
 function getCompleteThinkingFromStatefulMarker(
     content: vscode.LanguageModelChatMessage['content']
-): { thinking: string; signature: string } | undefined {
+): { thinking?: string; signature: string; hasToolCalls?: boolean } | undefined {
     const marker = getStatefulMarkerThinking(content);
-    if (!marker?.completeThinking) {
+    if (!marker) {
         return undefined;
     }
-    return { thinking: marker.completeThinking, signature: marker.completeSignature || '' };
+    return {
+        thinking: marker.completeThinking,
+        signature: marker.completeSignature || '',
+        hasToolCalls: marker.hasToolCalls
+    };
 }
 
 /**
@@ -263,15 +268,24 @@ function apiMessageToAnthropicContent(
     }
 
     if (message.role === vscode.LanguageModelChatMessageRole.Assistant) {
-        const modelId = modelConfig.model || modelConfig.id;
-        // 如果没有任何 thinking 块，并且模型是 DeepSeek V4，则添加一个空的 thinking 块以保持兼容性
-        if (thinkingBlocks.length === 0 && modelId.toLowerCase().includes('deepseek-v4')) {
+        const reasoningReplayPolicy = getReasoningReplayPolicy({
+            providerKey: modelConfig.provider,
+            modelConfig
+        });
+        // 如果 VS Code 剥离了 ThinkingPart，则对需要回放思考内容的兼容模型从 StatefulMarker 恢复。
+        if (thinkingBlocks.length === 0 && reasoningReplayPolicy.restoreFromStatefulMarker) {
             const markerThinking = getCompleteThinkingFromStatefulMarker(content);
-            thinkingBlocks.push({
-                type: 'thinking',
-                thinking: markerThinking?.thinking || ' ', // Anthropic 不接受空字符串，使用空格
-                signature: markerThinking?.signature || ''
-            } as ThinkingBlockParam);
+            const hasToolCalls = otherBlocks.some(block => block.type === 'tool_use');
+            if (
+                markerThinking?.thinking ||
+                shouldInjectReasoningPlaceholder(reasoningReplayPolicy, hasToolCalls, markerThinking?.hasToolCalls)
+            ) {
+                thinkingBlocks.push({
+                    type: 'thinking',
+                    thinking: markerThinking?.thinking || ' ',
+                    signature: markerThinking?.signature || ''
+                } as ThinkingBlockParam);
+            }
         }
     }
 

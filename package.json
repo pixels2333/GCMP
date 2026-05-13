@@ -630,67 +630,67 @@
         "languageModelChatProviders": [
             {
                 "vendor": "gcmp.zhipu",
-                "displayName": "⦿ 智谱AI (GLM Coding Plan)",
+                "displayName": "GCMP · ZhipuAI",
                 "managementCommand": "gcmp.zhipu.configWizard"
             },
             {
                 "vendor": "gcmp.minimax",
-                "displayName": "⦿ MiniMax (Coding Plan)",
+                "displayName": "GCMP · MiniMax",
                 "managementCommand": "gcmp.minimax.configWizard"
             },
             {
                 "vendor": "gcmp.moonshot",
-                "displayName": "⦿ MoonshotAI (Kimi For Coding)",
+                "displayName": "GCMP · MoonshotAI",
                 "managementCommand": "gcmp.moonshot.configWizard"
             },
             {
                 "vendor": "gcmp.deepseek",
-                "displayName": "⦿ DeepSeek",
+                "displayName": "GCMP · DeepSeek",
                 "managementCommand": "gcmp.deepseek.setApiKey"
             },
             {
                 "vendor": "gcmp.dashscope",
-                "displayName": "⦿ 阿里云百炼 (Coding / Token Plan)",
+                "displayName": "GCMP · Aliyun DashScope",
                 "managementCommand": "gcmp.dashscope.configWizard"
             },
             {
                 "vendor": "gcmp.streamlake",
-                "displayName": "⦿ 快手万擎 (KAT-Coder)",
+                "displayName": "GCMP · StreamLake",
                 "managementCommand": "gcmp.streamlake.setApiKey"
             },
             {
                 "vendor": "gcmp.volcengine",
-                "displayName": "⦿ 火山方舟 (Coding / Agent Plan)",
+                "displayName": "GCMP · Volcengine",
                 "managementCommand": "gcmp.volcengine.configWizard"
             },
             {
                 "vendor": "gcmp.tencent",
-                "displayName": "⦿ 腾讯云 (Coding / Token Plan)",
+                "displayName": "GCMP · Tencent Cloud",
                 "managementCommand": "gcmp.tencent.configWizard"
             },
             {
                 "vendor": "gcmp.xiaomimimo",
-                "displayName": "⦿ Xiaomi MiMo (Token Plan)",
+                "displayName": "GCMP · Xiaomi MiMo",
                 "managementCommand": "gcmp.xiaomimimo.configWizard"
             },
             {
                 "vendor": "gcmp.baidu",
-                "displayName": "⦿ 百度千帆 (Coding Plan)",
+                "displayName": "GCMP · Baidu Qianfan",
                 "managementCommand": "gcmp.baidu.configWizard"
             },
             {
                 "vendor": "gcmp.gemini",
-                "displayName": "⨮ Gemini CLI",
+                "displayName": "GCMP · Gemini CLI",
                 "managementCommand": "gcmp.gemini.configWizard"
             },
             {
                 "vendor": "gcmp.codex",
-                "displayName": "⨮ Codex CLI",
+                "displayName": "GCMP · Codex CLI",
                 "managementCommand": "gcmp.codex.configWizard"
             },
             {
                 "vendor": "gcmp.compatible",
-                "displayName": "⦿ OpenAI / Anthropic Compatible",
+                "displayName": "GCMP · Compatible Models",
                 "managementCommand": "gcmp.compatible.manageModels"
             }
         ],
@@ -1011,7 +1011,8 @@
         "package": "vsce package",
         "publish": "vsce publish --allow-proposed-apis chatProvider",
         "pretest": "npm run compile:dev",
-        "test": "npm run test:schema-sanitizer && npm run test:stateful-marker && npm run test:request-message-filter",
+        "test": "npm run test:schema-sanitizer && npm run test:stateful-marker && npm run test:reasoning-replay && npm run test:request-message-filter",
+        "test:reasoning-replay": "tsx --test src/handlers/reasoningReplayPolicy.test.ts",
         "test:request-message-filter": "tsx --test src/utils/requestMessageFilter.test.ts",
         "test:schema-sanitizer": "tsx --test src/utils/schemaSanitizer.test.ts",
         "test:stateful-marker": "tsx --test src/handlers/statefulMarkerCodec.test.ts"
