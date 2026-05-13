@@ -284,8 +284,10 @@ export class StreamReporter {
      * 去重工具调用参数（处理 DeepSeek 等 API 的重复片段）
      */
     private deduplicateToolArgs(existing: string, newArgs: string): string {
-        // 完全重复，跳过
-        if (existing.endsWith(newArgs)) {
+        // 仅对长度 >= 2 的片段进行完全去重，避免单字符（如 " 、,、}）被误判为重复
+        // 例如累积到 ...\" 时末尾字符是 "，传入的单字符 " 会被 endsWith 误匹配并丢弃，
+        // 导致 JSON 字符串缺少闭合引号，最终解析失败
+        if (newArgs.length >= 2 && existing.endsWith(newArgs)) {
             Logger.trace(`[${this.modelName}] 跳过重复的工具调用参数: "${newArgs}"`);
             return existing;
         }
